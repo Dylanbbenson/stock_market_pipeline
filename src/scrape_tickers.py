@@ -6,7 +6,7 @@ current_date = date.today().strftime('%Y-%m-%d')
 current_time = datetime.now().strftime("%H")
 
 url = 'https://www.tradingview.com/markets/stocks-usa/market-movers-active/'
-json_file = f"../data/tickers_{current_date}.json"
+json_file = f"./data/tickers_{current_date}.json"
 
 def scrape_tickers(url):
     response = requests.get(url)
