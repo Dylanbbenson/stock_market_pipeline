@@ -1,6 +1,5 @@
 import requests
 import json
-import csv
 from datetime import date, datetime
 import os
 import pandas as pd
@@ -12,19 +11,24 @@ json_file = f"./data/stock_market_data_{current_date}_{current_time}.json"
 csv_file = f"./data/stock_market_{current_date}_{current_time}.csv"
 ticker_file = f"./data/tickers_{current_date}.json"
 
-#get stock market api key
+#get api key
 with open('./config/credentials.json') as f:
     credentials = json.load(f)
 api_key = credentials['stock_market_key']
-api_url = credentials['url']
+headers = {
+    "x-rapidapi-key": credentials['stonks_key'],
+    "x-rapidapi-host": "realstonks.p.rapidapi.com"
+}
 
 #load scraped tickers
 def load_tickers_from_file(filename=ticker_file):
     with open(filename, 'r') as f:
         return json.load(f)
 
+#Get data from api
 def get_data(ticker) -> dict:
-    r = requests.get(f"https://api.polygon.io/v2/aggs/ticker/{ticker}/range/1/day/2023-01-09/2023-01-09?apiKey={api_key}")
+    api_url = f"https://realstonks.p.rapidapi.com/stocks/{ticker}/advanced"
+    r = requests.get(api_url, headers=headers)
     if not r.ok:
         raise Exception(f"Couldn't retrieve API data for ticker {ticker}")
     data = r.json()
@@ -70,8 +74,8 @@ def dump_data_to_files(json_data) -> None:
     print(f"CSV file saved at {csv_file}")
 
 if __name__ == '__main__':
-    #tickers = load_tickers_from_file()
-    tickers = ['AAPL', 'MSFT', 'BRK.B', 'JNJ', 'JPM']
+    tickers = load_tickers_from_file()
+    #tickers = ['AAPL', 'MSFT', 'BRK.B', 'JNJ', 'JPM']
     all_data = {}
     for ticker in tickers:
         try:
