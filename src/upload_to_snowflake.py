@@ -14,7 +14,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 def create_table_if_not_exists(cursor, table_name, df):
     schema = ', '.join([f"{col} STRING" for col in df.columns])
     create_table_sql = f"""
-    CREATE OR REPLACE TABLE {table_name} (
+    CREATE TABLE IF NOT EXISTS {table_name} (
         {schema}
     );
     """
