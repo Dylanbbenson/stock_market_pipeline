@@ -10,7 +10,7 @@ csv_file = f"./data/stock_market_{current_date}_{current_time}.csv"
 table_name = 'stocks'
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-
+#sql to create table
 def create_table_if_not_exists(cursor, table_name, df):
     schema = ', '.join([f"{col} STRING" for col in df.columns])
     create_table_sql = f"""
@@ -20,6 +20,7 @@ def create_table_if_not_exists(cursor, table_name, df):
     """
     cursor.execute(create_table_sql)
 
+#uploads to snowflake
 def upload_csv_to_snowflake():
     try:
         if not os.path.exists(csv_file):
