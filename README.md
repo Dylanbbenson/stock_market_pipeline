@@ -9,8 +9,7 @@ project structure:
 - Pipeline_Master.py: defines and runs an airflow dag that the three python scripts outlined in the src directory, scheduled to run at the top of every hour.
 - transform_snowflake_data.py: an airflow dag that runs the dbt models against the data in the warehouse
 
-**
-src/**
+**src/**
 
 - scrape_tickers.py: scrapes the 100 most valuable IPO tickers from tradingview.com and dumps them into a json file
 
@@ -23,8 +22,11 @@ src/**
 
 **stock_market_pipeline/models/**
 
-- stocks.sql
+- stocks.sql: stock prices including current and past values
 
-- industry_mapping.sql
+- industries.sql: unique industries and mapping for each
 
-- stock_prices.sql
+- companies.sql: unique companies based on ticker symbol 
+
+
+![Stock Market ELT Pipeline](https://github.com/user-attachments/assets/7335b531-60df-490d-9ab2-9205f0adbe38)
