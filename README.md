@@ -1,15 +1,16 @@
-stock_market_pipeline
+**stock_market_pipeline**
 
-A real-time data pipeline pulling stock market data on the 100 most valuable IPOs once every hour. This pipeline is written in python and uses Apache Airflow for scheduling and execution, dbt for transformation, and Snowflake for storage.
+A ELT pipeline pulling stock market data on the 100 most valuable IPOs once every hour. This pipeline is written in python and uses Apache Airflow for scheduling and execution, dbt for transformation, and Snowflake for storage.
 
 project structure:
 
-dags/
+**dags/**
 
 - Pipeline_Master.py: defines and runs an airflow dag that the three python scripts outlined in the src directory, scheduled to run at the top of every hour.
+- transform_snowflake_data.py: an airflow dag that runs the dbt models against the data in the warehouse
 
-
-src/
+**
+src/**
 
 - scrape_tickers.py: scrapes the 100 most valuable IPO tickers from tradingview.com and dumps them into a json file
 
@@ -18,3 +19,12 @@ src/
 - upload_to_snowflake.py: loads csv data to Snowflake data warehouse
 
 - ddl.sql: sql script for creating Snowflake database, schema, and table
+- 
+
+**stock_market_pipeline/models/**
+
+- stocks.sql
+
+- industry_mapping.sql
+
+- stock_prices.sql
