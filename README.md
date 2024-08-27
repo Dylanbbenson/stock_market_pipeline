@@ -43,5 +43,9 @@ project structure:
 
 - historical_price_summary.sql: summarizes historical prices of each stock
 
+**/**
+- requirements.txt: specifies python packages to install via pip
+  
+- dockerfile
 
 ![Stock Market ELT Pipeline](https://github.com/user-attachments/assets/7335b531-60df-490d-9ab2-9205f0adbe38)
