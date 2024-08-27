@@ -18,7 +18,6 @@ project structure:
 - upload_to_snowflake.py: loads csv data to Snowflake data warehouse
 
 - ddl.sql: sql script for creating Snowflake database, schema, and table
-- 
 
 **stock_market_pipeline/models/**
 
@@ -26,7 +25,23 @@ project structure:
 
 - industries.sql: unique industries and mapping for each
 
-- companies.sql: unique companies based on ticker symbol 
+- companies.sql: unique companies based on ticker symbol
+
+- daily_avg.sql: aggregates daily averages per stock
+
+- daily_top_price_changes.sql: aggregates stocks with biggest price change daily
+
+- monthly_avg.sql: aggregates monthly averages per stock
+
+- monthly_top_price_changes.sql: aggregates stocks with biggest price change monthly
+
+- monthly_volume_trends.sql: aggregates trends of each stock's volume monthly
+
+- rolling_avgs: aggregates rolling average each month for each stock
+
+- avg_price_by_industry.sql: aggregates average stock price per industry
+
+- historical_price_summary.sql: summarizes historical prices of each stock
 
 
 ![Stock Market ELT Pipeline](https://github.com/user-attachments/assets/7335b531-60df-490d-9ab2-9205f0adbe38)
