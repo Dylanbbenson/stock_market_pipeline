@@ -1,6 +1,5 @@
-**stock_market_pipeline**
-
-A ELT pipeline pulling stock market data on the 100 most valuable IPOs once every hour. This pipeline is written in python and uses Apache Airflow for scheduling and execution, dbt for transformation, and Snowflake for storage.
+# stock_market_pipeline
+An ELT pipeline pulling stock market data on the 100 most valuable IPOs once every hour. This pipeline is written in python and uses Apache Airflow for scheduling and execution, Snowflake for storage, dbt for transformation, and Tableau for reporting.
 
 project structure:
 
