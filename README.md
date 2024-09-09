@@ -42,6 +42,9 @@ project structure:
 
 - historical_price_summary.sql: summarizes historical prices of each stock
 
+**tableau/**
+- Stock Market Analysis.twbx: tableau workbook with some data visualizations on top of the dbt tables
+
 **/**
 - requirements.txt: specifies python packages to install via pip
   
