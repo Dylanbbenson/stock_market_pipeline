@@ -9,7 +9,7 @@ WITH max_timestamp AS (
 ),
 
 stock_prices AS (
-    SELECT
+    SELECT distinct
         symbol AS ticker,
         REGEXP_REPLACE(bidprice, '[^0-9-]', '') AS bid_price,
         REGEXP_REPLACE(lastprice, '[^0-9-]', '') AS last_price,

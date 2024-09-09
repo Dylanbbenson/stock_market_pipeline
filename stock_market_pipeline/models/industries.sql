@@ -9,7 +9,7 @@ WITH max_timestamp AS (
 ),
 
 industries as (
-      select
+      select distinct
       sicindustry as industry
     , CASE
         when sicindustry ilike '%AEROSPACE%' then 'AEROSPACE'
